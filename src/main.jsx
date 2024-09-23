@@ -8,11 +8,14 @@ import App from './App.jsx'
 import '@mantine/core/styles.css'
 import './styles/global.css'
 import theme from './styles/theme.js'
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <MantineProvider theme={theme}>
-      <App />
-    </MantineProvider>
+    <BrowserRouter>
+      <MantineProvider theme={theme}>
+        <App />
+      </MantineProvider>
+    </BrowserRouter>
   </React.StrictMode>
 )
