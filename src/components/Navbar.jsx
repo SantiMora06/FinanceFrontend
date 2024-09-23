@@ -1,17 +1,59 @@
 import { Link } from "react-router-dom";
-import classes from "../styles/header.module.css"
+import { useState } from "react";
+import classes from "../styles/header.module.css";
 
 const Header = () => {
-    return (<>
+    const [activeLink, setActiveLink] = useState("Portfolio"); // Por defecto, el primer enlace
+
+    const handleLinkClick = (linkName) => {
+        setActiveLink(linkName); // Cambia el enlace activo cuando se clickea
+    };
+
+    return (
         <nav className={classes.navbar}>
             <div className={classes.navbarLogo}>
-                <Link> <img /> </Link>
+                <Link><img alt="logo" /></Link>
                 <ul className={classes.navbarLinks}>
-                    <li >Portfolio</li>
-                    <li >Wishlist</li>
-                    <li >Transactions</li>
-                    <li >About</li>
-                    <li >Contact</li>
+                    <li className={classes.navbarLink}>
+                        <Link
+                            className={activeLink === "Portfolio" ? classes.active : ""}
+                            onClick={() => handleLinkClick("Portfolio")}
+                        >
+                            Portfolio
+                        </Link>
+                    </li>
+                    <li className={classes.navbarLink}>
+                        <Link
+                            className={activeLink === "Wishlist" ? classes.active : ""}
+                            onClick={() => handleLinkClick("Wishlist")}
+                        >
+                            Wishlist
+                        </Link>
+                    </li>
+                    <li className={classes.navbarLink}>
+                        <Link
+                            className={activeLink === "Transactions" ? classes.active : ""}
+                            onClick={() => handleLinkClick("Transactions")}
+                        >
+                            Transactions
+                        </Link>
+                    </li>
+                    <li className={classes.navbarLink}>
+                        <Link
+                            className={activeLink === "About" ? classes.active : ""}
+                            onClick={() => handleLinkClick("About")}
+                        >
+                            About
+                        </Link>
+                    </li>
+                    <li className={classes.navbarLink}>
+                        <Link
+                            className={activeLink === "Contact" ? classes.active : ""}
+                            onClick={() => handleLinkClick("Contact")}
+                        >
+                            Contact
+                        </Link>
+                    </li>
                 </ul>
             </div>
             <div className={classes.navauth}>
@@ -19,8 +61,7 @@ const Header = () => {
                 <Link to="/register">Register</Link>
             </div>
         </nav>
-
-    </>);
-}
+    );
+};
 
 export default Header;
