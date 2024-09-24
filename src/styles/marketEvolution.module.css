@@ -1,0 +1,7 @@
+.marketEvolutionBox {
+    background-color: #2ECC71;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1);
+    color: #2C3E50;
+}

@@ -8,6 +8,8 @@
     position: fixed;
     width: 100%;
     z-index: 999;
+    height: 15vh;
+    top: 0;
 }
 
 .navbarLogo {
@@ -22,12 +24,14 @@
 }
 
 .navbarLinks li {
-    display: inline;
+    display: flex;
+    align-items: center;
 }
 
 .navbarLink a {
     color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .navbarLink a:hover {
@@ -35,11 +39,12 @@
     text-underline-offset: 0.3em;
 }
 
-.navbarLink a:hover {
-    text-decoration: underline #2ECC71 solid 2px;
-    text-underline-offset: 0.3em;
+.img {
+    background-color: transparent;
+    display: flex;
+    height: 15vh;
+    margin-left: 1em;
 }
-
 
 .navauth a {
     margin-left: 1rem;

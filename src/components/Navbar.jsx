@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import classes from "../styles/header.module.css";
+import Logo from "../assets/LogoNoBackGround.png"
 
 const Header = () => {
     const [activeLink, setActiveLink] = useState("Portfolio"); // Por defecto, el primer enlace
@@ -12,7 +13,7 @@ const Header = () => {
     return (
         <nav className={classes.navbar}>
             <div className={classes.navbarLogo}>
-                <Link><img alt="logo" /></Link>
+                <Link to="/"> <img src={Logo} alt="Logo" className={classes.img} /> </Link>
                 <ul className={classes.navbarLinks}>
                     <li className={classes.navbarLink}>
                         <Link
@@ -52,6 +53,14 @@ const Header = () => {
                             onClick={() => handleLinkClick("Contact")}
                         >
                             Contact
+                        </Link>
+                    </li>
+                    <li className={classes.navbarLink}>
+                        <Link
+                            className={activeLink === "Blog" ? classes.active : ""}
+                            onClick={() => handleLinkClick("Blog")}
+                        >
+                            Blog
                         </Link>
                     </li>
                 </ul>

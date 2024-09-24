@@ -1,8 +1,9 @@
-import Header from "../components/Navbar";
+import CryptoSquare from "../components/CryptoSquare";
+import MainContent from "../components/MainContent";
 
 const Home = () => {
     return (<>
-        <Header />
+        <MainContent />
     </>);
 }
 

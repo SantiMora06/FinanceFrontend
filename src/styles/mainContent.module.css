@@ -1,0 +1,20 @@
+.MainSection {
+    margin-top: 20vh;
+    text-align: center;
+}
+
+.MainTitle {
+    margin-bottom: 0.75em;
+}
+
+.MainParagraph {
+    margin: 5vh 15vw 10vh 10vw;
+    text-align: justify;
+}
+
+.ContentGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30vw, 2fr));
+    grid-gap: 5vw;
+    margin: 5vh 10vw 5vh 10vw;
+}
