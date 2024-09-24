@@ -49,20 +49,21 @@ const Header = () => {
                     </li>
                     <li className={classes.navbarLink}>
                         <Link
-                            className={activeLink === "Contact" ? classes.active : ""}
-                            onClick={() => handleLinkClick("Contact")}
-                        >
-                            Contact
-                        </Link>
-                    </li>
-                    <li className={classes.navbarLink}>
-                        <Link
                             className={activeLink === "Blog" ? classes.active : ""}
                             onClick={() => handleLinkClick("Blog")}
                         >
                             Blog
                         </Link>
                     </li>
+                    <li className={classes.navbarLink}>
+                        <Link
+                            className={activeLink === "Contact" ? classes.active : ""}
+                            onClick={() => handleLinkClick("Contact")}
+                        >
+                            Contact
+                        </Link>
+                    </li>
+
                 </ul>
             </div>
             <div className={classes.navauth}>

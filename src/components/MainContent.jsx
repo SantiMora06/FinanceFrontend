@@ -3,6 +3,7 @@ import CommoditiesSquare from "./CommoditiesSquare";
 import CryptoSquare from "./CryptoSquare";
 import IndicatorSquare from "./IndicatorSquare";
 import MarketEvolutionSquare from "./MarketEvolutionSquare";
+import RandomCommodity from "./randomCommodity";
 
 const MainContent = () => {
     return (<>
@@ -11,12 +12,12 @@ const MainContent = () => {
             <p className={classes.MainParagraph}>Keep yourself updated from the last economic trends, statistics and also create your own portfolio, add your favourite
                 assets to your wishlist and check the transactions you have performed!
             </p>
-
             <div className={classes.ContentGrid}>
                 <IndicatorSquare />
                 <CommoditiesSquare />
                 <CryptoSquare />
                 <MarketEvolutionSquare />
+                <RandomCommodity />
             </div>
         </section>
     </>);

@@ -1,6 +1,5 @@
 import classes from "../styles/commoditySquare.module.css"
 
-
 const CommoditiesSquare = () => {
     return (<>
 
@@ -18,7 +17,6 @@ const CommoditiesSquare = () => {
             <div className={classes.smallContainer}>
                 <p> /*Name, lastprice, volume, ceva*/ </p>
             </div>
-
         </div></>);
 }
 
