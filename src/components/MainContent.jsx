@@ -3,7 +3,6 @@ import CommoditiesSquare from "./CommoditiesSquare";
 import CryptoSquare from "./CryptoSquare";
 import IndicatorSquare from "./IndicatorSquare";
 import MarketEvolutionSquare from "./MarketEvolutionSquare";
-import RandomCommodity from "./randomCommodity";
 
 const MainContent = () => {
     return (<>
@@ -17,7 +16,6 @@ const MainContent = () => {
                 <CommoditiesSquare />
                 <CryptoSquare />
                 <MarketEvolutionSquare />
-                <RandomCommodity />
             </div>
         </section>
     </>);
