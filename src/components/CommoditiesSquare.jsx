@@ -42,32 +42,27 @@ const CommoditiesSquare = () => {
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Interval</th>
-                            <th>Unit</th>
-                            <th>Date</th>
-                            <th>Price</th>
+                            <th>Symbol</th>
+                            <th>Currency</th>
+                            <th>Stock Exchange</th>
                         </tr>
                     </thead>
                     <tbody>
                         {commodities.map((commodity, index) => {
-                            const name = commodity.data?.name ? commodity.data.name.split(" ").pop() : null;
-                            const interval = commodity.data?.interval || null;
-                            const unit = commodity.data?.unit ? commodity.data.unit.split(" ").pop() : null;
-                            const date = (commodity.data?.data && commodity.data.data.length > 0) ? commodity.data.data[0].date : null;
-                            const price = (commodity.data?.data && commodity.data.data.length > 0 && commodity.data.data[0].value)
-                                ? parseFloat(commodity.data.data[0].value).toFixed(3)
-                                : null;
+                            const name = commodity.name;
+                            const symbol = commodity.symbol;
+                            const currency = commodity.currency;
+                            const stockExchange = commodity.stockExchange
 
                             // Check if any value is not null before rendering
-                            if (!name && !interval && !unit && !date && !price) return null;
+                            if (!name && !symbol && !currency && !stockExchange) return null;
 
                             return (
                                 <tr key={index}>
                                     {name && <td>{name}</td>}
-                                    {interval && <td>{interval}</td>}
-                                    {unit && <td>{unit}</td>}
-                                    {date && <td>{date}</td>}
-                                    {price && <td>{price}</td>}
+                                    {symbol && <td>{symbol}</td>}
+                                    {currency && <td>{currency}</td>}
+                                    {stockExchange && <td>{stockExchange}</td>}
                                 </tr>
                             );
                         })}

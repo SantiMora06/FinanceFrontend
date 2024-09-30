@@ -1,0 +1,77 @@
+.navauth a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.75em;
+    margin: 0 0.75em;
+}
+
+.navauth {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+.form {
+    display: none;
+    padding: 10%;
+    /* Initially hidden */
+    opacity: 0;
+    transform: translateY(-10px);
+    position: absolute;
+    /* Position it absolutely */
+    top: 110%;
+    /* Position below the nav links */
+    right: 5%;
+    /* Align with the left side */
+    background-color: white;
+    /* Optional: set a background */
+    border: 1px solid #ccc;
+    /* Optional: border for better visibility */
+    border-radius: 4px;
+    /* Optional: rounded corners */
+    z-index: 1;
+    /* Ensure it appears above other content */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Smooth transition */
+    justify-items: center;
+
+}
+
+.form.show {
+    color: black;
+    display: flex;
+    /* Show the form */
+    opacity: 1;
+    /* Fully visible */
+    transform: translateY(0);
+    /* Drop into place */
+    border: 2px solid black;
+}
+
+input {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    margin: 0.5em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.fieldset {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: none;
+}
+
+fieldset label {
+    display: flex;
+}
