@@ -14,7 +14,13 @@ const CommoditiesSquare = () => {
             if (!response.ok) throw new Error("Network response was not ok");
             const data = await response.json();
             console.log("Fetched commodity data:", data); // Log the data
-            setCommodities(data); // Set the fetched data directly
+
+            if (data && data.quotes) {
+                setCommodities(data.quotes)
+            } else {
+                throw new Error("Invalid data structure")
+            }
+
         } catch (error) {
             console.log("Error fetching commodities", error);
             setError("Failed to fetch commodities");
@@ -43,26 +49,24 @@ const CommoditiesSquare = () => {
                         <tr>
                             <th>Name</th>
                             <th>Symbol</th>
-                            <th>Currency</th>
-                            <th>Stock Exchange</th>
+                            <th>Price</th>
+                            <th>Exchange Rate</th>
                         </tr>
                     </thead>
                     <tbody>
                         {commodities.map((commodity, index) => {
-                            const name = commodity.name;
-                            const symbol = commodity.symbol;
-                            const currency = commodity.currency;
-                            const stockExchange = commodity.stockExchange
+                            const { name, symbol, price, exchangeRate } = commodity;
+
 
                             // Check if any value is not null before rendering
-                            if (!name && !symbol && !currency && !stockExchange) return null;
+                            if (!name && !symbol && !price && !exchangeRate) return null;
 
                             return (
                                 <tr key={index}>
                                     {name && <td>{name}</td>}
-                                    {symbol && <td>{symbol}</td>}
-                                    {currency && <td>{currency}</td>}
-                                    {stockExchange && <td>{stockExchange}</td>}
+                                    {symbol && <td>{symbol.slice(0, -3)}</td>}
+                                    {price && <td>{price.toFixed(4)}</td>}
+                                    {exchangeRate && <td>{exchangeRate.toFixed(2)}</td>}
                                 </tr>
                             );
                         })}

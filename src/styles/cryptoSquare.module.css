@@ -6,10 +6,17 @@
     color: #2ECC71
 }
 
-.smallContainer1 {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 0 1vw;
+.CryptosTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.CryptosTable th,
+.CryptosTable td {
+    padding: 8px;
+    text-align: center;
+}
+
+.CryptosTable th {
+    text-transform: uppercase;
 }
