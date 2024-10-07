@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import classes from "../styles/cryptoSquare.module.css";
-
+import { useNavigate } from "react-router-dom"
 const VITE_URL = import.meta.env.VITE_URL;
 
 const CryptoSquare = () => {
     const [cryptos, setCryptos] = useState([]); // CryptoArray
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate()
 
     const fetchCryptos = async () => {
         try {
@@ -36,6 +37,7 @@ const CryptoSquare = () => {
         fetchCryptos();
     }, []);
 
+
     if (loading) return <p>Loading cryptos...</p>;
     if (error) return <p>{error}</p>;
 
@@ -64,7 +66,7 @@ const CryptoSquare = () => {
                                     <td>{name.slice(0, -4)}</td>
                                     <td>{symbol.slice(0, -3)}</td>
                                     <td>{price.toFixed(8)}</td> {/* Show the price on 5 decimals*/}
-                                    <td>{exchangeRate.toFixed(2)}</td>
+                                    <td>{exchangeRate.toFixed(2)}%</td>
                                 </tr>
                             );
                         })}
@@ -73,6 +75,7 @@ const CryptoSquare = () => {
             ) : (
                 <p>No crypto data available.</p>
             )}
+            <button onClick={() => navigate("/all-cryptos")} className={classes.TableButton}>See all cryptos</button>
         </div>
     );
 };

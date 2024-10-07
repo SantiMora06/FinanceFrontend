@@ -11,15 +11,15 @@ const IndicatorSquare = () => {
 
     const fetchIndicators = async () => {
         try {
-            console.log("Fetching indicators...");
-            const response = await fetch(`${VITE_URL}/indicators/random-indicators`); // Asegúrate de que el endpoint sea correcto
+            console.log("Fetching Stock...");
+            const response = await fetch(`${VITE_URL}/stock/random-stock`); // Asegúrate de que el endpoint sea correcto
             if (!response.ok) throw new Error("Network response was not ok");
             const data = await response.json();
             console.log("Fetched indicators data:", data); // Verifica la estructura de los datos
             setIndicators(data); // Establece los datos
         } catch (error) {
-            console.error("Error fetching indicators:", error);
-            setError("Failed to fetch indicators");
+            console.error("Error fetching stock:", error);
+            setError("Failed to fetch Stock");
         } finally {
             setLoading(false); // Termina el estado de carga
         }
@@ -29,12 +29,12 @@ const IndicatorSquare = () => {
         fetchIndicators();
     }, []);
 
-    if (loading) return <p>Loading indicators...</p>;
+    if (loading) return <p>Loading Stock...</p>;
     if (error) return <p>{error}</p>;
 
     return (
         <div className={classes.IndicatorsBox}>
-            <h2 className={classes.Subtitle}>Indicators</h2>
+            <h2 className={classes.Subtitle}>Stock</h2>
             {indicators.length > 0 ? (
                 <table className={classes.IndicatorsTable}>
                     <thead>
@@ -68,7 +68,7 @@ const IndicatorSquare = () => {
                     </tbody>
                 </table>
             ) : (
-                <p>No indicator data available.</p>
+                <p>No Stock data available.</p>
             )}
         </div>
     );

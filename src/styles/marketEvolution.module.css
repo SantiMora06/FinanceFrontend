@@ -1,4 +1,4 @@
-.marketEvolutionBox {
+.marketsBox {
     background-color: #2ECC71;
     padding: 20px;
     border-radius: 10px;
@@ -6,10 +6,17 @@
     color: #2C3E50;
 }
 
-.smallContainer1 {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 0 1vw;
+.MarketTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.MarketTable th,
+.MarketTable td {
+    padding: 8px;
+    text-align: center;
+}
+
+.MarketTable th {
+    text-transform: uppercase;
 }

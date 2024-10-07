@@ -20,3 +20,8 @@
 .CryptosTable th {
     text-transform: uppercase;
 }
+
+.CryptosTable .paragraph {
+    display: flex;
+    justify-items: center;
+}

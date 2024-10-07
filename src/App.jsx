@@ -10,6 +10,7 @@ import Transactions from "./pages/Transactions"
 import Wishlist from "./pages/Wishlist"
 import CommoditiesDetails from "./pages/CommoditiesDetails"
 import CryptoDetails from "./pages/CryptoDetails"
+import AllCryptosData from "./components/AllCryptos"
 
 function App() {
   return <>
@@ -20,6 +21,7 @@ function App() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/*" element={<Error />} />
+      <Route path="/all-cryptos" element={<AllCryptosData />} />
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/transaction" element={<Transactions />} />
       <Route path="/wishlist" element={<Wishlist />} />

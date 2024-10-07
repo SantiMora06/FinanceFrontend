@@ -9,58 +9,50 @@
     display: flex;
     align-items: center;
     position: relative;
+    z-index: 2;
+    /* Ensure navbar is above the blur */
 }
-
 
 .form {
     display: none;
-    padding: 10%;
-    /* Initially hidden */
+    /* Hide initially */
+    padding: 20px;
     opacity: 0;
     transform: translateY(-10px);
-    position: absolute;
-    /* Position it absolutely */
-    top: 110%;
-    /* Position below the nav links */
-    right: 5%;
-    /* Align with the left side */
+    position: fixed;
+    /* Change to fixed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center the form */
     background-color: white;
-    /* Optional: set a background */
     border: 1px solid #ccc;
-    /* Optional: border for better visibility */
     border-radius: 4px;
-    /* Optional: rounded corners */
-    z-index: 1;
-    /* Ensure it appears above other content */
+    z-index: 1003;
+    /* Ensure form is above the blur */
     transition: opacity 0.3s ease, transform 0.3s ease;
-    /* Smooth transition */
-    justify-items: center;
-
 }
 
 .form.show {
-    color: black;
     display: flex;
-    /* Show the form */
+    /* Show form */
     opacity: 1;
-    /* Fully visible */
-    transform: translateY(0);
-    /* Drop into place */
-    border: 2px solid black;
+    transform: translate(-50%, -50%);
+    /* Maintain center position */
+}
+
+body.blur {
+    filter: blur(1px);
+    /* Blur effect */
 }
 
 input {
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    flex-wrap: wrap;
     margin: 0.5em;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
 }
 

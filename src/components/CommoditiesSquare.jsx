@@ -66,7 +66,7 @@ const CommoditiesSquare = () => {
                                     {name && <td>{name}</td>}
                                     {symbol && <td>{symbol.slice(0, -3)}</td>}
                                     {price && <td>{price.toFixed(4)}</td>}
-                                    {exchangeRate && <td>{exchangeRate.toFixed(2)}</td>}
+                                    {exchangeRate && <td>{exchangeRate.toFixed(2)}%</td>}
                                 </tr>
                             );
                         })}

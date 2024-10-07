@@ -10,11 +10,17 @@ const MarketEvolutionSquare = () => {
     const fetchMarket = async () => {
         try {
             console.log("Fetching market data...");
-            const response = await fetch(`${VITE_URL}/stock/market-status`); // Asegúrate de que el endpoint sea correcto
+            const response = await fetch(`${VITE_URL}/market/gainers`); // Asegúrate de que el endpoint sea correcto
             if (!response.ok) throw new Error("Network response was not ok");
             const data = await response.json();
             console.log("Fetched market status:", data); // Verifica la estructura de los datos
-            setMarket(data); // Establece los datos
+
+            if (data && data.quotes) {
+                setMarket(data.quotes); // Establece los datos
+            } else {
+                throw new Error("Invalid data structure")
+            }
+
         } catch (error) {
             console.error("Error fetching market status:", error);
             setError("Failed to fetch market status");
@@ -38,28 +44,24 @@ const MarketEvolutionSquare = () => {
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Interval</th>
-                            <th>Unit</th>
-                            <th>Date</th>
+                            <th>Symbol</th>
+                            <th>change</th>
                             <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
                         {market.map((mark, index) => {
-                            const { name, interval, unit, data } = mark.data;
+                            const { name, symbol, exchangeRate, price } = mark;
 
                             // Validar la existencia de los campos
-                            if (!name || !interval || !unit || !data || data.length === 0) return null;
-
-                            const { date, value } = data[0]; // Tomar el primer elemento
+                            if (!name || !symbol || !exchangeRate || !price) return null;
 
                             return (
                                 <tr key={index}>
                                     <td>{name}</td>
-                                    <td>{interval}</td>
-                                    <td>{unit}</td>
-                                    <td>{date}</td>
-                                    <td>{parseFloat(value).toFixed(3)}</td>
+                                    <td>{symbol}</td>
+                                    <td>{exchangeRate}%</td>
+                                    <td>{parseFloat(price).toFixed(3)}</td>
                                 </tr>
                             );
                         })}
