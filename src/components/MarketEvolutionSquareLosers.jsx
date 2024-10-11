@@ -1,8 +1,8 @@
-import classes from "../styles/marketEvolution.module.css"
+import classes from "../styles/marketLosers.module.css"
 import { useEffect, useState } from "react";
 const VITE_URL = import.meta.env.VITE_URL;
 
-const MarketEvolutionSquare = () => {
+const MarketEvolutionSquareLosers = () => {
     const [market, setMarket] = useState([]); // Array de criptomonedas
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ const MarketEvolutionSquare = () => {
     const fetchMarket = async () => {
         try {
             console.log("Fetching market data...");
-            const response = await fetch(`${VITE_URL}/market/gainers`); // Asegúrate de que el endpoint sea correcto
+            const response = await fetch(`${VITE_URL}/market/losers`); // Asegúrate de que el endpoint sea correcto
             if (!response.ok) throw new Error("Network response was not ok");
             const data = await response.json();
             console.log("Fetched market status:", data); // Verifica la estructura de los datos
@@ -38,7 +38,7 @@ const MarketEvolutionSquare = () => {
 
     return (
         <div className={classes.MarketsBox}>
-            <h2 className={classes.Subtitle}>Market Gainers</h2>
+            <h2 className={classes.Subtitle}>Market Losers</h2>
             {market.length > 0 ? (
                 <table className={classes.MarketTable}>
                     <thead>
@@ -75,7 +75,7 @@ const MarketEvolutionSquare = () => {
 };
 
 
-export default MarketEvolutionSquare;
+export default MarketEvolutionSquareLosers;
 
 
 

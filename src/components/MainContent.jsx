@@ -1,8 +1,8 @@
 import classes from "../styles/mainContent.module.css"
 import CommoditiesSquare from "./CommoditiesSquare";
 import CryptoSquare from "./CryptoSquare";
-import IndicatorSquare from "./IndicatorSquare";
 import MarketEvolutionSquare from "./MarketEvolutionSquare";
+import MarketEvolutionSquareLosers from "./MarketEvolutionSquareLosers";
 
 const MainContent = () => {
     return (<>
@@ -12,10 +12,10 @@ const MainContent = () => {
                 assets to your wishlist and check the transactions you have performed!
             </p>
             <div className={classes.ContentGrid}>
-                <IndicatorSquare />
+                <MarketEvolutionSquare />
                 <CommoditiesSquare />
                 <CryptoSquare />
-                <MarketEvolutionSquare />
+                <MarketEvolutionSquareLosers />
             </div>
         </section>
     </>);

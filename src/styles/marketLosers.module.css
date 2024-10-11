@@ -1,29 +1,22 @@
-.CryptoBox {
-    background-color: #2C3E50;
+.marketsBox {
+    background-color: #2ECC71;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1);
-    color: #2ECC71
+    color: #2C3E50;
 }
 
-.CryptosTable {
+.MarketTable {
     width: 100%;
     border-collapse: collapse;
 }
 
-.CryptosTable th,
-.CryptosTable td {
+.MarketTable th,
+.MarketTable td {
     padding: 8px;
     text-align: center;
 }
 
-.CryptosTable th {
+.MarketTable th {
     text-transform: uppercase;
 }
-
-.CryptosTable .paragraph {
-    display: flex;
-    justify-items: center;
-}
-
-button {}

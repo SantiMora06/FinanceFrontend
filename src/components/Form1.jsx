@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 const Form1 = () => {
-    const [formType, setFormType] = useState(null); // 'register' or 'login'
+    const [formType, setFormType] = useState(null);
 
     const handleFormToggle = (type) => {
         if (formType === type) {
@@ -13,7 +13,7 @@ const Form1 = () => {
         }
     };
 
-    // Add or remove blur class from body
+    // Add or remove blur and overlay based on form visibility
     useEffect(() => {
         if (formType) {
             document.body.classList.add(classes.blur);
@@ -24,11 +24,17 @@ const Form1 = () => {
 
     return (
         <>
-            <div className={classes.navauth}>
+            <header className={classes.navauth}>
                 <Link to="#" onClick={() => handleFormToggle('register')}>Register</Link>
                 <Link to="#" onClick={() => handleFormToggle('login')}>Login</Link>
-                {formType && (
-                    <div className={`${classes.form} ${formType ? classes.show : ""}`}>
+            </header>
+            {formType && (
+                <>
+                    {/* Overlay that blurs the background */}
+                    <div className={classes.overlay}></div>
+
+                    {/* Form container */}
+                    <div className={`${classes.form} ${classes.show}`}>
                         <form method="post">
                             <label>Username:</label>
                             <input type="text" placeholder="Username" name="username" id="username" required />
@@ -52,8 +58,8 @@ const Form1 = () => {
                             <input type="submit" value={formType === 'login' ? 'Login' : 'Register'} />
                         </form>
                     </div>
-                )}
-            </div>
+                </>
+            )}
         </>
     );
 };
