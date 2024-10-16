@@ -27,7 +27,6 @@ function App() {
       <Route path="/wishlist" element={<Wishlist />} />
       <Route path="/commodities-data" element={<CommoditiesDetails />} />
       <Route path="/crypto-details" element={<CryptoDetails />} />
-      <Route path="/" element={<Home />} />
     </Routes></>
 }
 

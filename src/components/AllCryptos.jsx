@@ -14,7 +14,12 @@ const AllCryptosData = () => {
             if (!response.ok) throw new Error("Network response was not ok");
             const data = await response.json();
             console.log("Fetched crypto data:", data);
-            setAllCryptos(data);  // Directly set the response data
+
+            if (data && data.quotes) {
+                setAllCryptos(data.quotes)
+            } else {
+                throw new Error("Invalid data structure")
+            }
 
         } catch (error) {
             console.log("Error fetching all the cryptos", error);
@@ -35,23 +40,39 @@ const AllCryptosData = () => {
         <div className={classes.AllCryptoBox}>
             <h2 className={classes.Subtitle}>Cryptos</h2>
             {allCryptos.length > 0 ? (
-
-                allCryptos.map((crypto, index) => {
-                    const { name, symbol, currency } = crypto;
-                    if (!name || !symbol || !currency) return null;
-                    return (
-                        <tr key={index}>
-                            <td>{name}</td>
-                            <td>{symbol}</td>
-                            <td>{currency}</td>
+                <table className={classes.AllCryptotable}>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Symbol</th>
+                            <th>Price</th>
+                            <th>Exchange Rate</th>
                         </tr>
-                    );
-                })
+                    </thead>
+                    <tbody>
+                        {allCryptos.map((crypto, index) => {
+                            const { name, symbol, price, exchangeRate } = crypto;
+
+                            if (!name && !symbol && !currency && !exchangeRate && (price === undefined || price === null)) return null;
+
+                            return (
+                                <tr key={index}>
+                                    <td>{name.slice(0, -4)}</td>
+                                    <td>{symbol.slice(0, -3)}</td>
+                                    <td>{price.toFixed(8)}</td> {/* Show the price on 5 decimals*/}
+                                    <td>{exchangeRate.toFixed(2)}%</td>
+                                </tr>
+
+                            );
+                        })}
+                    </tbody>
+                </table>
+
 
             ) : (
                 <p>No crypto data available.</p>
             )}
-        </div>
+        </div >
     );
 }
 
